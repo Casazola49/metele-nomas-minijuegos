@@ -29,12 +29,12 @@ Chain strategy: pending
 
 ## Wave 1 — quien-lo-dijo, guerra-criticas
 
-- [ ] Create `data/quotes.ts`: `Quote` (`id, text, author, category?, emoji?`) + ≥12. <!-- sdd-owner: implementation -->
-- [ ] Create `app/games/quien-lo-dijo/page.tsx`: GameShell + useGameTurn quiz; 4 author options (1 correct, same category first). <!-- sdd-owner: implementation -->
-- [ ] Create `data/ratings.ts`: `RatingScores` (`imdb` 0–10, `rottenTomatoes` 0–100, numeric) + ≥10 pairs. <!-- sdd-owner: implementation -->
-- [ ] Create `app/games/guerra-criticas/page.tsx`: A/B duel; winner = higher normalized average; point only on real winner. <!-- sdd-owner: implementation -->
-- [ ] Flip `quien-lo-dijo` + `guerra-criticas` cards in `components/home/GameGrid.tsx`: `comingSoon: false` + `href`. <!-- sdd-owner: implementation -->
-- [ ] Verify wave 1: shared test command passes. <!-- sdd-owner: implementation -->
+- [x] Create `data/quotes.ts`: `Quote` (`id, text, author, category?, emoji?`) + ≥12. <!-- sdd-owner: implementation -->
+- [x] Create `app/games/quien-lo-dijo/page.tsx`: GameShell + useGameTurn quiz; 4 author options (1 correct, same category first). <!-- sdd-owner: implementation -->
+- [x] Create `data/ratings.ts`: `RatingScores` (`imdb` 0–10, `rottenTomatoes` 0–100, numeric) + ≥10 pairs. <!-- sdd-owner: implementation -->
+- [x] Create `app/games/guerra-criticas/page.tsx`: A/B duel; winner = higher normalized average; point only on real winner. <!-- sdd-owner: implementation -->
+- [x] Flip `quien-lo-dijo` + `guerra-criticas` cards in `components/home/GameGrid.tsx`: `comingSoon: false` + `href`. <!-- sdd-owner: implementation -->
+- [x] Verify wave 1: shared test command passes. <!-- sdd-owner: implementation -->
 
 ## Wave 2 — noticia-o-fake, polemica-total
 

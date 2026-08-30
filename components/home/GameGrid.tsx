@@ -74,9 +74,9 @@ const games = [
         description: "Frases para la historia... o para el olvido. ¿Sabes quién lo dijo?. Aparecerá en pantalla una frase icónica, una polémica declaración o simplemente un disparate memorable. ¿Fue dicha por un rockero legendario, un presidente, un influencer o un actor de Hollywood? Pone a prueba tu conocimiento sobre la cultura popular y la actualidad, con un especial énfasis en los personajes más sonados de Bolivia, desde celebridades y deportistas hasta nuestros inolvidables políticos. ¡Identifica al autor de la cita y conviértete en el maestro de las frases célebres!",
         image: "/images/coming-soon-green.png",
         theme: "green",
-        href: "#",
+        href: "/games/quien-lo-dijo",
         badges: ["FRASES", "FAMOSOS"],
-        comingSoon: true,
+        comingSoon: false,
     },
     {
         id: "face-mashup",
@@ -114,9 +114,9 @@ const games = [
         description: "En esta esquina, un clásico del cine aclamado por la crítica. En la otra, una peli moderna que ha recaudado millones. La pregunta no es cuál te gusta más, sino: ¿Cuál de las dos tiene una mejor puntuación en bases de datos de críticas como IMDb o Rotten Tomatoes? Es una batalla épica entre el legado y la novedad. ¿Se impone el gusto de los críticos o el del público actual? ¡Usa tu criterio cinéfilo para predecir al ganador!",
         image: "/images/coming-soon-blue.png",
         theme: "blue",
-        href: "#",
+        href: "/games/guerra-criticas",
         badges: ["CINE", "RATING"],
-        comingSoon: true,
+        comingSoon: false,
     },
     {
         id: "noticia-o-fake",
