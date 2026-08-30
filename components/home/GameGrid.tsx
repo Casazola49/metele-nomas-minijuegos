@@ -84,9 +84,9 @@ const games = [
         description: "Bienvenido al laboratorio de rostros más extraño de la internet. Usando la magia de la IA, hemos mezclado las caras de dos famosos para crear una sola persona híbrida y fascinante. Tu desafío es descifrar qué dos celebridades se esconden en esa única y extraña cara. ¿Y si en lugar de una fusión, intercambiamos los rostros de dos personajes en una foto? ¡El nivel de dificultad aumenta! Es una prueba de tu conocimiento pop y tu agudeza visual para reconocer rasgos en los lugares más inesperados.",
         image: "/images/coming-soon-blue.png",
         theme: "blue",
-        href: "#",
+        href: "/games/face-mashup",
         badges: ["FUSIÓN", "CELEBRIDADES"],
-        comingSoon: true,
+        comingSoon: false,
     },
     {
         id: "color-correcto",
@@ -144,9 +144,9 @@ const games = [
         description: "Olvida todo lo que sabes sobre el ahorcado. Te mostraremos una imagen que te gritará una respuesta obvia... ¡pero es una trampa! Verás a una persona negando con la cabeza y tu cerebro pensará inmediatamente en \"Negro\", pero la palabra correcta es \"Negar\". Verás un ladrón en acción y tu mente dirá \"Delicioso\", cuando la respuesta es \"Delinquir\". Cada imagen es un acertijo diseñado para engañar a tu mente. ¿Puedes resistirte a la respuesta más fácil y pensar fuera de la caja para adivinar la palabra real? ¡Un juego que te hará reír de tus propias conclusiones!",
         image: "/images/coming-soon-blue.png",
         theme: "blue",
-        href: "#",
+        href: "/games/ahorcado-funable",
         badges: ["HUMOR", "PALABRAS"],
-        comingSoon: true,
+        comingSoon: false,
     },
     {
         id: "ingredientes",
@@ -154,9 +154,9 @@ const games = [
         description: "¿Crees ser chef? Demuestra tu conocimiento culinario identificando el plato final a partir de una foto de sus ingredientes crudos. La clave de este reto está en las opciones. Si ves carne de res, ¡todas las opciones serán platos que llevan carne de res (ej. Silpancho, Fricasé, Picana)! Si ves maíz (choclo), las opciones serán todas a base de maíz (ej. Huminta, Tamal, Api). Solo un verdadero conocedor sabrá distinguir qué plato exacto resulta de esa combinación única de especias, verduras y el ingrediente principal.",
         image: "/images/coming-soon-pink.png",
         theme: "pink",
-        href: "#",
+        href: "/games/ingredientes",
         badges: ["COCINA", "INGREDIENTES"],
-        comingSoon: true,
+        comingSoon: false,
     },
 ] as const;
 
