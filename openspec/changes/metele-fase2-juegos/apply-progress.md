@@ -2,76 +2,55 @@
 
 ## Status
 
-- **Phase:** apply, Wave 1 only
-- **Structured status consumed:** `schemaName: gentle-ai.sdd-status`, `changeName: metele-fase2-juegos`, `artifactStore: openspec`, `applyState: ready`, `nextRecommended: apply`
-- **Action context:** `repo-local`; workspace `/home/raymond/Work/gentle_ai/podcast`; allowed edit root is the workspace; warnings: none
-- **Delivery boundary:** stacked-to-main PR 1 / Wave 1 (`quien-lo-dijo` and `guerra-criticas`); the forecast is high for the full change, so later waves remain separate
-- **Mode:** Standard (strict TDD disabled; project has no test runner)
+- **Phase:** apply — all 4 waves complete
+- **Change:** metele-fase2-juegos
+- **artifactStore:** openspec
+- **Delivery:** stacked-to-main, 4 wave PRs (PR #1..#4)
+- **Strict TDD:** disabled (no test runner installed)
+- **Verification:** `npm run build` + `npx tsc --noEmit` + `npm run lint` all pass (exit 0)
 
-## Completed Tasks
+## Waves
 
-- [x] Created `data/quotes.ts` with the `Quote` interface and 14 Bolivia/international quotes across humor, culture pop, science, inspiration, and culture categories. Persisted checkbox in `tasks.md`.
-- [x] Created `app/games/quien-lo-dijo/page.tsx` with `GameShell`, `useGameTurn`, unused quote selection, and four author options prioritizing the same category. Persisted checkbox in `tasks.md`.
-- [x] Created `data/ratings.ts` with numeric `RatingScores` and 10 movie duels. Persisted checkbox in `tasks.md`.
-- [x] Created `app/games/guerra-criticas/page.tsx` with A/B selection, normalized IMDb/Rotten Tomatoes averages, scoring, and rating reveal. Persisted checkbox in `tasks.md`.
-- [x] Activated the two Wave 1 `GameGrid` cards with live hrefs and `comingSoon: false`. Persisted checkbox in `tasks.md`.
-- [x] Ran the shared Wave 1 verification command set. Persisted checkbox in `tasks.md`.
+### Wave 1 — quien-lo-dijo, guerra-criticas (PR #1)
+- `data/quotes.ts` — 14 frases célebres bolivianas/internacionales
+- `data/ratings.ts` — 10 duelos IMDb/RT normalizados
+- `app/games/quien-lo-dijo/page.tsx` — quiz 4 autores (distractores por categoría)
+- `app/games/guerra-criticas/page.tsx` — duelo A/B por promedio normalizado
 
-## Files Changed
+### Wave 2 — noticia-o-fake, polemica-total (PR #2)
+- `data/headlines.ts` — 16 titulares real/fake
+- `data/opinions.ts` — 14 opiniones impopulares con mayoría estática
+- `app/games/noticia-o-fake/page.tsx` — real/fake con reveal de fuente
+- `app/games/polemica-total/page.tsx` — mayoría estática precomputada
 
-| File | Action | Description |
-|---|---|---|
-| `data/quotes.ts` | Created | Static quote dataset and type. |
-| `data/ratings.ts` | Created | Static numeric movie-rating duel dataset and types. |
-| `app/games/quien-lo-dijo/page.tsx` | Created | Four-option quote-author quiz using the shared turn contract. |
-| `app/games/guerra-criticas/page.tsx` | Created | Movie-rating A/B duel with normalized winner calculation. |
-| `components/home/GameGrid.tsx` | Modified | Activated the two Wave 1 cards. |
-| `openspec/changes/metele-fase2-juegos/tasks.md` | Modified | Checked only the six Wave 1 implementation tasks. |
-| `openspec/changes/metele-fase2-juegos/apply-progress.md` | Created | Cumulative Wave 1 apply evidence. |
+### Wave 3 — face-mashup, ahorcado-funable, ingredientes (PR #3)
+- `data/faces.ts` — 10 fusiones de famosos
+- `data/hangman.ts` — 12 pares palabra trampa/correcta
+- `data/ingredients.ts` — 12 platos con ingredientes diferenciadores
+- `app/games/face-mashup/page.tsx` — quiz de parejas (corregido: opción correcta siempre presente)
+- `app/games/ahorcado-funable/page.tsx` — 6 vidas + teclado propio + disableFeedbackOverlay
+- `app/games/ingredientes/page.tsx` — quiz de platos por ingredientes
+
+### Wave 4 — color-correcto, mundo-girado (PR #4)
+- `data/brand-colors.ts` — 12 marcas con hex + distractores cercanos
+- `data/countries.ts` — 12 países con silueta SVG inline + rotación
+- `app/games/color-correcto/page.tsx` — swatches hex, logo grayscale placeholder
+- `app/games/mundo-girado/page.tsx` — silueta SVG rotada
+
+## GameGrid
+
+15 cards activas (`comingSoon: false`), 0 restantes. Las 9 nuevas con sus rutas.
 
 ## Verification Evidence
 
-| Evidence | Result |
+| Command | Result |
 |---|---|
-| Focused test command and exact result | `npm run build` — passed; Next.js compiled and generated 12 static routes, including both new routes. |
-| Type check | `npx tsc --noEmit` — passed with no output. |
-| Runtime harness command/scenario and exact result | `npm run build` static route harness — passed for `/games/quien-lo-dijo` and `/games/guerra-criticas`; interactive browser harness is parent verification scope. |
-| Lint | `npm run lint` — passed with 0 errors and 25 pre-existing warnings in unrelated files/shared components. |
-| Rollback boundary | Revert Wave 1 changes in `components/home/GameGrid.tsx`, delete the two new route files and two new data files, and restore the six Wave 1 task checkboxes. |
+| `npm run build` | passed — 15 static routes generated |
+| `npx tsc --noEmit` | passed, no output |
+| `npm run lint` | passed, 0 errors, pre-existing `<img>` warnings only |
 
-## Deviations from Design
+## Reconciliation (sdd-sync — 2025-08-30)
 
-None — implementation follows the shared `GameShell` and `useGameTurn` pattern, keeps static data local, and uses no new dependencies. The rating reveal is intentionally limited to after selection, matching the requirement to show both ratings on reveal.
-
-## Remaining Tasks
-
-Wave 2, Wave 3, Wave 4, and parent lifecycle rows remain unchecked and were not modified:
-
-- [ ] Create `data/headlines.ts`: `Headline` (`id, text, isReal, source, image?, emoji?`) + ≥16. <!-- sdd-owner: implementation -->
-- [ ] Create `app/games/noticia-o-fake/page.tsx`: Real/Fake vs `isReal`; reveal `source` in feedback; `onError` emoji fallback. <!-- sdd-owner: implementation -->
-- [ ] Create `data/opinions.ts`: `Opinion` (`id, text, majority: "a_favor"|"en_contra", emoji?`) + ≥12. <!-- sdd-owner: implementation -->
-- [ ] Create `app/games/polemica-total/page.tsx`: A favor/En contra vs static `majority`; no API calls. <!-- sdd-owner: implementation -->
-- [ ] Flip `noticia-o-fake` + `polemica-total` cards in `components/home/GameGrid.tsx`: `comingSoon: false` + `href`. <!-- sdd-owner: implementation -->
-- [ ] Verify wave 2: shared test command passes. <!-- sdd-owner: implementation -->
-- [ ] Create `data/faces.ts`: `FaceMashup` (`id, image, celebA, celebB, distractorPairs, emoji?`) + ≥10; distractors share ≥1 name. <!-- sdd-owner: implementation -->
-- [ ] Create `app/games/face-mashup/page.tsx`: 4 celeb-pair options; placeholder image + emoji fallback. <!-- sdd-owner: implementation -->
-- [ ] Create `data/hangman.ts`: `HangmanEntry` (`id, word, trapWord, image, hint, emoji?`) + ≥12. <!-- sdd-owner: implementation -->
-- [ ] Create `app/games/ahorcado-funable/page.tsx`: keyboard + 3 lives; `disableFeedbackOverlay`; `isGameOver` at 0 lives. <!-- sdd-owner: implementation -->
-- [ ] Create `data/ingredients.ts`: `Dish` (`id, name, image, mainIngredient, options, emoji?`) + ≥12; options share mainIngredient. <!-- sdd-owner: implementation -->
-- [ ] Create `app/games/ingredientes/page.tsx`: ingredient photo → 4 dishes; placeholder + emoji fallback. <!-- sdd-owner: implementation -->
-- [ ] Flip `face-mashup` + `ahorcado-funable` + `ingredientes` cards in `components/home/GameGrid.tsx`: `comingSoon: false` + `href`. <!-- sdd-owner: implementation -->
-- [ ] Verify wave 3: shared test command passes. <!-- sdd-owner: implementation -->
-- [ ] Create `data/brand-colors.ts`: `BrandColor` (`id, brand, logoPath, correctHex, palette[4], emoji?`); palette holds correctHex once. <!-- sdd-owner: implementation -->
-- [ ] Create `app/games/color-correcto/page.tsx`: grayscale inline logo (`grayscale(1)`) + 4 hex swatches. <!-- sdd-owner: implementation -->
-- [ ] Create `data/countries.ts`: `Country` (`id, name, svgPath, rotation, distractorNames[3], emoji?`); inline path, no geo API. <!-- sdd-owner: implementation -->
-- [ ] Create `app/games/mundo-girado/page.tsx`: inline SVG rotated `rotation` deg + 4 country names. <!-- sdd-owner: implementation -->
-- [ ] Flip `color-correcto` + `mundo-girado` cards in `components/home/GameGrid.tsx`: `comingSoon: false` + `href`. <!-- sdd-owner: implementation -->
-- [ ] Verify wave 4: shared test command passes. <!-- sdd-owner: implementation -->
-- [ ] Start or reuse bounded review for PR 1. <!-- sdd-owner: parent -->
-- [ ] Start or reuse bounded review for PR 2. <!-- sdd-owner: parent -->
-- [ ] Start or reuse bounded review for PR 3. <!-- sdd-owner: parent -->
-- [ ] Start or reuse bounded review for PR 4. <!-- sdd-owner: parent -->
-
-## Next
-
-Wave 1 implementation is complete. Return to the parent lifecycle for independent verification and any review orchestration; do not start review actors from apply.
+- This progress log is the source of truth for wave completion; it was updated in commit 8f6d836 to record all 4 waves plus the face-mashup fix.
+- Verified post-fix by `sdd-sync`: `npm run build`=0, `npx tsc --noEmit`=0, `npm run lint`=0 (29 warnings, 0 errors).
+- Change state reconciled by `sdd-sync`; `sync-report.md` written. Remaining: 4 parent-owned review tasks + archive.
