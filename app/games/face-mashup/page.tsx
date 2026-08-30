@@ -18,9 +18,12 @@ export default function FaceMashupGame() {
     const newRound = () => {
         const next = faceMashups[Math.floor(Math.random() * faceMashups.length)];
         const correct = `${next.nameA} + ${next.nameB}`;
-        const distractors = faceMashups.filter((f) => f.id !== next.id)
-            .flatMap((f) => [`${next.nameA} + ${f.nameB}`, `${f.nameA} + ${next.nameB}`]);
-        setItem(next); setOptions(shuffle([correct, ...distractors]).slice(0, 4)); setFeedback(null);
+        const distractors = faceMashups
+            .filter((f) => f.id !== next.id)
+            .flatMap((f) => [`${next.nameA} + ${f.nameB}`, `${f.nameA} + ${next.nameB}`])
+            .filter((opt) => opt !== correct);
+        const picked = shuffle(distractors).slice(0, 3);
+        setItem(next); setOptions(shuffle([correct, ...picked])); setFeedback(null);
     };
     const start = (count: number) => { turn.handleStart(count); setStarted(true); newRound(); };
     const answer = (choice: string) => {
