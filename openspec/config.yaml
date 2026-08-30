@@ -1,0 +1,87 @@
+# openspec/config.yaml — SDD configuration for metele-nomas-minijuegos
+schema: spec-driven
+
+context: |
+  Tech stack: Next.js 16.0.5 (App Router, Turbopack) + React 19.2.0 + TypeScript 5 strict + Tailwind CSS 4.
+  Architecture: pass-and-play minigames sharing GameShell (components/game/GameShell.tsx) and turn/score hook (lib/useGameTurn.ts); routes app/games/*/page.tsx; static data in data/.
+  Testing: No test runner installed (unit/integration/E2E absent). Lint: ESLint 9 flat config (core-web-vitals + TS). Type check: tsc strict. Formatter: none.
+  Style: Comic "Metele Nomás" brand (palette/tokens in app/globals.css, Bebas Neue/Black Han Sans/Nunito), framer-motion, Spanish es-BO UI copy.
+  Rebrand of https://github.com/Casazola49/asi-somos-minijuegos (origin still points there; new fork pending). Next planned change: metele-fase2-juegos (9 minigames).
+
+strict_tdd: false
+# Rationale: no test runner or workspace-level test command covers this project yet,
+# so strict TDD cannot gate execution. Re-enable (strict_tdd: true) once a
+# workspace-wide test command is installed and covers this project.
+
+testing:
+  status: none
+  # Proposal only — nothing installed, no dependency added by this phase.
+  proposed_runner: vitest
+  proposed_setup:
+    - name: vitest
+      layer: unit
+      note: Recommended runner for Next.js 16 + React 19 (Vite/ESM-native, fast; Next.js official docs support Vitest).
+    - name: "@testing-library/react"
+      layer: unit
+      note: Component tests for GameShell, ComicButton, game pages.
+    - name: jsdom
+      layer: unit
+      note: DOM environment for React Testing Library.
+    - name: "@testing-library/jest-dom"
+      layer: unit
+      note: Extended DOM matchers (toBeInTheDocument, etc.).
+    - name: "@testing-library/user-event"
+      layer: integration
+      note: Simulated user interactions for turn/score flows.
+    - name: "@vitest/coverage-v8"
+      layer: coverage
+      note: Coverage provider.
+    - name: "@playwright/test"
+      layer: e2e
+      note: Optional later; full game flow E2E across routes. Not required for strict_tdd.
+  projects:
+    - path: "."
+      stack: "Next.js 16 (App Router) / React 19 / TS 5 strict / Tailwind 4"
+      test_command: null
+      framework: null
+      unit: false
+      integration: false
+      e2e: false
+      coverage: false
+      coverage_command: null
+      linter: eslint
+      lint_command: "npm run lint"
+      type_checker: typescript
+      type_check_command: "npx tsc --noEmit"
+      formatter: null
+      formatter_command: null
+
+rules:
+  proposal:
+    - Include rollback plan for risky changes.
+    - Respect the 400-line review budget; forecast chained PRs when work may exceed it.
+  specs:
+    - Use Given/When/Then for scenarios.
+    - Use RFC 2119 keywords (MUST, SHALL, SHOULD, MAY).
+    - State which data/component/hook each game behavior touches.
+  design:
+    - Include sequence diagrams for complex flows (e.g., turn lifecycle in useGameTurn).
+    - Document architecture decisions with rationale.
+    - Follow existing patterns: GameShell composition, useGameTurn for per-turn state, data/*.ts for content.
+  tasks:
+    - Group by phase, use hierarchical numbering.
+    - Keep tasks completable in one session.
+    - One task per minigame for the fase-2 backlog (9 minigames: quien-lo-dijo, face-mashup, color-correcto, mundo-girado, guerra-criticas, noticia-o-fake, polemica-total, ahorcado-funable, ingredientes).
+  apply:
+    guidelines:
+      - Follow existing code patterns (GameShell, data modules, comic UI tokens in globals.css).
+      - Keep es-BO Spanish UI copy; English code identifiers.
+      - Do not install new dependencies without an explicit request.
+    tdd: false
+    test_command: ""
+  verify:
+    test_command: "npm run build"
+    build_command: "npm run build"
+    coverage_threshold: 0
+  archive:
+    - Warn before merging destructive deltas.
