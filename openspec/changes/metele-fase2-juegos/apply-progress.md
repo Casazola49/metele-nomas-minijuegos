@@ -48,3 +48,9 @@
 | `npm run build` | passed — 15 static routes generated |
 | `npx tsc --noEmit` | passed, no output |
 | `npm run lint` | passed, 0 errors, pre-existing `<img>` warnings only |
+
+## Reconciliation (sdd-sync — 2025-08-30)
+
+- This progress log is the source of truth for wave completion; it was updated in commit 8f6d836 to record all 4 waves plus the face-mashup fix.
+- Verified post-fix by `sdd-sync`: `npm run build`=0, `npx tsc --noEmit`=0, `npm run lint`=0 (29 warnings, 0 errors).
+- Change state reconciled by `sdd-sync`; `sync-report.md` written. Remaining: 4 parent-owned review tasks + archive.

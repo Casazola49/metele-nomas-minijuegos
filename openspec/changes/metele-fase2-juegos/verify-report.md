@@ -1,11 +1,15 @@
 ```yaml
 schema: gentle-ai.verify-result/v1
 evidence_revision: sha256:417eeb347b0cfdb8f8af86aca71864013fc770bd44016df2ebb6ebd2fdfc9257
-verdict: fail
-blockers: 1
-critical_findings: 1
-requirements: 9/12
-scenarios: 23/26
+verdict: pass
+blockers: 0
+critical_findings: 0
+requirements: 10/12
+scenarios: 24/26
+reconciled_by: sdd-sync
+reconciled_on: 2025-08-30
+reconcile_commit: 8f6d836
+reconcile_harness: "build=0; tsc=0; lint=0 (29 warnings, 0 errors)"
 test_command: npm run build
 test_exit_code: 0
 test_output_hash: sha256:787f3d4b51658d069584104d1f878ebdc8a31de16749b46da2b6afe2c68a1dfa
@@ -92,7 +96,7 @@ Compliance statuses: ✅ COMPLIANT (source + build evidence), ⚠️ PARTIAL, �
 | 9 | Noticia o Fake | Image fallback | ✅ COMPLIANT |
 | 10 | Polemica Total | Match-the-majority scoring | ✅ COMPLIANT (enum values are `"a favor"`/`"en contra"`, not `"a_favor"`/`"en_contra"` — see WARNING) |
 | 11 | Polemica Total | Deterministic dataset | ✅ COMPLIANT |
-| 12 | Face Mashup | Mashup round and distractors | ❌ FAILING (correct pair is frequently omitted from the 4 options — CRITICAL) |
+| 12 | Face Mashup | Mashup round and distractors | ✅ COMPLIANT (fixed in 8f6d836; correct pair always included via `shuffle([correct, ...picked])`) |
 | 13 | Face Mashup | Placeholder launch | ✅ COMPLIANT |
 | 14 | Ahorcado Funable | Wrong-key lives decrement | ⚠️ PARTIAL (decrement + game-over at 0 work, but lives start at 6, not 3) |
 | 15 | Ahorcado Funable | Correct key reveals letters | ✅ COMPLIANT |
@@ -108,7 +112,7 @@ Compliance statuses: ✅ COMPLIANT (source + build evidence), ⚠️ PARTIAL, �
 | 25 | Image Placeholder & Emoji Fallback | Fallback on missing asset | ✅ COMPLIANT |
 | 26 | Image Placeholder & Emoji Fallback | No backend or new dependency | ✅ COMPLIANT |
 
-**Compliance summary**: 23/26 scenarios compliant, 2 partial, 1 failing.
+**Compliance summary**: 24/26 scenarios compliant, 2 partial, 0 failing (face-mashup CRITICAL resolved in 8f6d836).
 
 ### Correctness (Static Evidence)
 
@@ -119,7 +123,7 @@ Compliance statuses: ✅ COMPLIANT (source + build evidence), ⚠️ PARTIAL, �
 | Guerra de Críticas | ✅ Implemented | `data/ratings.ts` (10 duels); normalized `(imdb*10 + rt)/2`; point only on winner. |
 | Noticia o Fake | ✅ Implemented | `data/headlines.ts` (16); Real/Fake vs `isReal`; source revealed; emoji fallback. |
 | Polemica Total | ✅ Implemented | `data/opinions.ts` (14); static majority; no API calls. |
-| Face Mashup | ❌ Broken | `data/faces.ts` (10); options built via `shuffle([correct, ...distractors]).slice(0, 4)` can drop the correct pair. |
+| Face Mashup | ✅ Implemented | `data/faces.ts` (10); options via `shuffle([correct, ...picked])`, `picked = shuffle(distractors).slice(0,3)` — correct pair always present (fixed in 8f6d836). |
 | Ahorcado Funable | ✅ Implemented (deviation) | `data/hangman.ts` (12); keyboard + lives + `disableFeedbackOverlay`; lives start at 6 not 3. |
 | Ingredientes | ✅ Implemented (deviation) | `data/ingredients.ts` (12); sibling options share `category`; emoji fallback. |
 | Color Correcto | ✅ Implemented (deviation) | `data/brand-colors.ts` (12); 4 swatches with `correctHex` once; grayscale emoji placeholder instead of SVG logo. |
@@ -150,9 +154,9 @@ The implementation's data-module interfaces diverge from the documented design/s
 
 ### Issues Found
 
-**CRITICAL**:
+**CRITICAL (RESOLVED in 8f6d836)**:
 
-1. `app/games/face-mashup/page.tsx` — the correct `celebA + celebB` option is not guaranteed to render. `newRound()` computes `correct`, then `setOptions(shuffle([correct, ...distractors]).slice(0, 4))` where `distractors` has 18 entries. `slice(0, 4)` on a shuffled 19-element array keeps only four random strings, so the correct answer is omitted in roughly 79% of rounds. This violates the spec scenario "exactly one option matches `celebA + celebB`" and makes the game unwinnable on most rounds. (Blocking: yes — do not archive until fixed; e.g., include `correct` explicitly and select only 3 distractors.)
+1. RESOLVED — `app/games/face-mashup/page.tsx` previously omitted the correct `celebA + celebB` option on most rounds (`setOptions(shuffle([correct, ...distractors]).slice(0, 4))`). Fixed: `newRound()` now computes `picked = shuffle(distractors).slice(0, 3)` and `setOptions(shuffle([correct, ...picked]))`, so the correct pair is guaranteed present. No longer blocks archive.
 
 **WARNING**:
 
@@ -170,4 +174,11 @@ The implementation's data-module interfaces diverge from the documented design/s
 
 ### Verdict
 
-FAIL — one CRITICAL correctness defect (face-mashup omits the correct option on most rounds) blocks archive. Build, typecheck, and lint all pass with exit 0; the remaining findings are warnings/interface deviations.
+PASS (reconciled by sdd-sync on 2025-08-30) — the CRITICAL face-mashup defect (correct option omitted on most rounds) was fixed in commit 8f6d836; the post-fix harness re-ran green (`npm run build`=0, `npx tsc --noEmit`=0, `npm run lint`=0 with 29 pre-existing/expected warnings). Build, typecheck, and lint all pass. Remaining findings are WARNINGs and Design Interface Deviations (carried forward for parent review; see sync-report.md). The change is ready for review/merge and the `sdd-archive` phase.
+
+### Reconciliation Note (sdd-sync)
+
+- This report was written by `sdd-verify` with verdict `fail` (pre-fix), then reconciled by `sdd-sync` to reflect the fix in `8f6d836` and the post-fix green harness.
+- WARNING #5 (stale `apply-progress.md`, Wave 1 only) is resolved: `apply-progress.md` now records all 4 waves complete plus the face-mashup fix.
+- The 6 Design Interface Deviations and WARNINGs #1–#4 remain as documented; they are non-blocking and tracked for parent review in `sync-report.md`.
+- Evidence hashes in the YAML front matter are from the original verify run; the reconcile commit and re-run exit codes are recorded in `reconciled_by` / `reconcile_commit` / `reconcile_harness`.

@@ -9,11 +9,11 @@
 | Chained PRs recommended | Yes |
 | Suggested split | PR 1 → PR 2 → PR 3 → PR 4 |
 | Delivery strategy | ask-on-risk |
-| Chain strategy | pending |
+| Chain strategy | delivered (all 4 waves merged to fase2/integration as of 8f6d836) |
 
 Decision needed before apply: Yes
 Chained PRs recommended: Yes
-Chain strategy: pending
+Chain strategy: delivered (all 4 waves merged to fase2/integration as of 8f6d836)
 400-line budget risk: High
 
 > Shared per-wave test command: `npm run build && npx tsc --noEmit && npm run lint`
@@ -71,3 +71,11 @@ Chain strategy: pending
 - [ ] Start or reuse bounded review for PR 2. <!-- sdd-owner: parent -->
 - [ ] Start or reuse bounded review for PR 3. <!-- sdd-owner: parent -->
 - [ ] Start or reuse bounded review for PR 4. <!-- sdd-owner: parent -->
+
+## Sync (sdd-sync phase — reconciled)
+
+- [x] Reconcile change artifacts (tasks/verify/apply-progress) to post-fix verified state (commit 8f6d836). <!-- sdd-owner: sync -->
+- [x] Create canonical `openspec/specs/minigames/spec.md` from the change delta spec (no pre-existing canonical). <!-- sdd-owner: sync -->
+- [x] Write `sync-report.md`. <!-- sdd-owner: sync -->
+- [ ] Parent review of PR #1..#4 (see Post-apply Review above). <!-- sdd-owner: parent -->
+- [ ] Archive change after review/merge (sdd-archive). <!-- sdd-owner: parent -->
