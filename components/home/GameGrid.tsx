@@ -124,9 +124,9 @@ const games = [
         description: "En un mundo de desinformación, ¿puedes distinguir un titular real o una fake news? Te presentaremos un titular tan absurdo, increíble o hilarante que dudarás de su veracidad. ¿Proviene de una noticia real que capturó lo más extraño de la realidad o es una creación de un medio de sátira? Incluiremos portadas icónicas del periódico boliviano \"La Voz\" y otras joyas del humor periodístico. Este juego pondrá a prueba tu espíritu crítico y, sobre todo, tu sentido del humor. ¡Separa la verdad de la ingeniosa invención!",
         image: "/images/coming-soon-pink.png",
         theme: "pink",
-        href: "#",
+        href: "/games/noticia-o-fake",
         badges: ["NOTICIAS", "HUMOR"],
-        comingSoon: true,
+        comingSoon: false,
     },
     {
         id: "polemica-total",
@@ -134,9 +134,9 @@ const games = [
         description: "¡Prepárate para debatir! Saldrá una frase polémica y tú tendrás que posicionarte. ¿Eres de los pocos o de los muchos? Aparecerá una frase diseñada para generar debate: \"La pizza con piña es deliciosa\", \"El fin justifica los medios\", \"Los libros son siempre mejores que las películas\". Tendrás solo dos botones: \"A favor\" o \"En contra\". Ganas puntos si tu opinión coincide con la de la mayoría. Pero la verdadera diversión comienza si quedas en el bando minoritario, ¡porque tendrás que defender tu postura contra todos! Es un juego de opiniones, estrategia y persuasión.",
         image: "/images/coming-soon-green.png",
         theme: "green",
-        href: "#",
+        href: "/games/polemica-total",
         badges: ["DEBATE", "POLÉMICA"],
-        comingSoon: true,
+        comingSoon: false,
     },
     {
         id: "ahorcado-funable",
