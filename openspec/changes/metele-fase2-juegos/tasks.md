@@ -38,12 +38,12 @@ Chain strategy: pending
 
 ## Wave 2 — noticia-o-fake, polemica-total
 
-- [ ] Create `data/headlines.ts`: `Headline` (`id, text, isReal, source, image?, emoji?`) + ≥16. <!-- sdd-owner: implementation -->
-- [ ] Create `app/games/noticia-o-fake/page.tsx`: Real/Fake vs `isReal`; reveal `source` in feedback; `onError` emoji fallback. <!-- sdd-owner: implementation -->
-- [ ] Create `data/opinions.ts`: `Opinion` (`id, text, majority: "a_favor"\|"en_contra", emoji?`) + ≥12. <!-- sdd-owner: implementation -->
-- [ ] Create `app/games/polemica-total/page.tsx`: A favor/En contra vs static `majority`; no API calls. <!-- sdd-owner: implementation -->
-- [ ] Flip `noticia-o-fake` + `polemica-total` cards in `components/home/GameGrid.tsx`: `comingSoon: false` + `href`. <!-- sdd-owner: implementation -->
-- [ ] Verify wave 2: shared test command passes. <!-- sdd-owner: implementation -->
+- [x] Create `data/headlines.ts`: `Headline` (`id, text, isReal, source, image?, emoji?`) + ≥16. <!-- sdd-owner: implementation -->
+- [x] Create `app/games/noticia-o-fake/page.tsx`: Real/Fake vs `isReal`; reveal `source` in feedback; `onError` emoji fallback. <!-- sdd-owner: implementation -->
+- [x] Create `data/opinions.ts`: `Opinion` (`id, text, majority: "a_favor"\|"en_contra", emoji?`) + ≥12. <!-- sdd-owner: implementation -->
+- [x] Create `app/games/polemica-total/page.tsx`: A favor/En contra vs static `majority`; no API calls. <!-- sdd-owner: implementation -->
+- [x] Flip `noticia-o-fake` + `polemica-total` cards in `components/home/GameGrid.tsx`: `comingSoon: false` + `href`. <!-- sdd-owner: implementation -->
+- [x] Verify wave 2: shared test command passes. <!-- sdd-owner: implementation -->
 
 ## Wave 3 — face-mashup, ahorcado-funable, ingredientes
 
