@@ -58,12 +58,12 @@ Chain strategy: pending
 
 ## Wave 4 — color-correcto, mundo-girado
 
-- [ ] Create `data/brand-colors.ts`: `BrandColor` (`id, brand, logoPath, correctHex, palette[4], emoji?`); palette holds correctHex once. <!-- sdd-owner: implementation -->
-- [ ] Create `app/games/color-correcto/page.tsx`: grayscale inline logo (`grayscale(1)`) + 4 hex swatches. <!-- sdd-owner: implementation -->
-- [ ] Create `data/countries.ts`: `Country` (`id, name, svgPath, rotation, distractorNames[3], emoji?`); inline path, no geo API. <!-- sdd-owner: implementation -->
-- [ ] Create `app/games/mundo-girado/page.tsx`: inline SVG rotated `rotation` deg + 4 country names. <!-- sdd-owner: implementation -->
-- [ ] Flip `color-correcto` + `mundo-girado` cards in `components/home/GameGrid.tsx`: `comingSoon: false` + `href`. <!-- sdd-owner: implementation -->
-- [ ] Verify wave 4: shared test command passes. <!-- sdd-owner: implementation -->
+- [x] Create `data/brand-colors.ts`: `BrandColor` (`id, brand, logoPath, correctHex, palette[4], emoji?`); palette holds correctHex once. <!-- sdd-owner: implementation -->
+- [x] Create `app/games/color-correcto/page.tsx`: grayscale inline logo (`grayscale(1)`) + 4 hex swatches. <!-- sdd-owner: implementation -->
+- [x] Create `data/countries.ts`: `Country` (`id, name, svgPath, rotation, distractorNames[3], emoji?`); inline path, no geo API. <!-- sdd-owner: implementation -->
+- [x] Create `app/games/mundo-girado/page.tsx`: inline SVG rotated `rotation` deg + 4 country names. <!-- sdd-owner: implementation -->
+- [x] Flip `color-correcto` + `mundo-girado` cards in `components/home/GameGrid.tsx`: `comingSoon: false` + `href`. <!-- sdd-owner: implementation -->
+- [x] Verify wave 4: shared test command passes. <!-- sdd-owner: implementation -->
 
 ## Post-apply Review (parent)
 

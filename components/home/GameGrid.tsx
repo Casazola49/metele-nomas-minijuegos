@@ -94,9 +94,9 @@ const games = [
         description: "Crees que conoces tus marcas favoritas, pero... ¿podrías identificar su color exacto de memoria? Mostraremos el logo de una marca mundialmente famosa (Google, Spotify, Starbucks, Netflix, etc.), pero lo habremos despojado de su color, dejándolo en blanco y negro. Debajo, una paleta de colores con tonos muy similares te esperará. ¿Eres capaz de seleccionar el tono corporativo exacto? No es solo el rojo, es el rojo de Coca-Cola. No es solo el amarillo, es el amarillo de McDonald's. Un juego para los más detallistas y para quienes viven y respiran la cultura de las marcas.",
         image: "/images/coming-soon-pink.png",
         theme: "pink",
-        href: "#",
+        href: "/games/color-correcto",
         badges: ["LOGOS", "MEMORIA"],
-        comingSoon: true,
+        comingSoon: false,
     },
     {
         id: "mundo-girado",
@@ -104,9 +104,9 @@ const games = [
         description: "Pone a prueba tu conocimiento del mapa de una manera completamente nueva. Mostraremos la silueta de un país, pero con un giro: estará dada la vuelta, girada o sutilmente distorsionada. ¿Podrás identificar a Italia sin su forma de bota? ¿Reconocerías a Bolivia o a Australia desde una perspectiva imposible? Es un desafío que mezcla la geografía con el rompecabezas espacial. ¡Demuestra que el mundo no tiene secretos para ti, sin importar desde dónde lo mires!",
         image: "/images/coming-soon-green.png",
         theme: "green",
-        href: "#",
+        href: "/games/mundo-girado",
         badges: ["GEOGRAFÍA", "MAPAS"],
-        comingSoon: true,
+        comingSoon: false,
     },
     {
         id: "guerra-criticas",
