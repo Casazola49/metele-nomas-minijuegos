@@ -41,3 +41,6 @@ yarn-error.log*
 next-env.d.ts
 # Local Pi runtime state
 .atl/
+
+# CodeGraph local index
+.codegraph/
