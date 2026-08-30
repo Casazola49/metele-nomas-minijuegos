@@ -7,6 +7,7 @@ import { movies, Movie } from "@/data/movies";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function PelimojisGame() {
+    // TODO: Migrar a useGameTurn (lib/useGameTurn.ts) para unificar la lógica de turnos/puntaje.
     const [players, setPlayers] = useState<{ name: string; score: number }[]>([]);
     const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
     const [isGameOver, setIsGameOver] = useState(false);

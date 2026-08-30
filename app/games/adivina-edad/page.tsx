@@ -17,6 +17,7 @@ interface Player {
 export default function AdivinaEdadGame() {
     // Game State
     const [started, setStarted] = useState(false);
+    // TODO: Migrar a useGameTurn (lib/useGameTurn.ts) para unificar la lógica de turnos/puntaje.
     const [players, setPlayers] = useState<Player[]>([]);
     const [playerCount, setPlayerCount] = useState(2);
     const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);

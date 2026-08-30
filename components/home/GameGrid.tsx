@@ -44,9 +44,9 @@ const games = [
         description: "¿Tienes ojo de gourmet y la paciencia de un detective? ¡Pon a prueba tus sentidos en este desafío visual!. En la pantalla aparecerá una imagen de un delicioso plato de comida, pero con un giro: estará tan pixeleada que será casi irreconocible. Abajo, una lista de posibles nombres te pondrá a prueba. ¿Confías en tu primer instinto? ¡Puedes usar la opción de \"despixelear\" para revelar pistas, pero cuidado, tus rivales harán lo mismo! El primero en identificar el plato correcto se llevará la victoria y el título de Chef Pixel. ¡Una carrera contrarreloj donde la agudeza visual y la velocidad lo son todo!.",
         image: "/images/coming-soon-green.png",
         theme: "green",
-        href: "#",
+        href: "/games/pixel-chef",
         badges: ["COMIDA", "VISUAL"],
-        comingSoon: true,
+        comingSoon: false,
     },
     {
         id: "a-cuanto-case",
@@ -54,9 +54,9 @@ const games = [
         description: "Un “versus” directo entre productos. A la izquierda tienes un producto con **precio de referencia**; a la derecha aparece otro y debes adivinar: **¿cuesta más o cuesta menos?.** Es rápido, competitivo y perfecto para rondas cortas. Puedes incluir productos del súper, tecnología, comida rápida, streaming, etc. La tensión sube cuando la diferencia es mínima y cualquiera se equivoca por confiarse.",
         image: "/images/coming-soon-blue.png",
         theme: "blue",
-        href: "#",
+        href: "/games/a-cuanto-case",
         badges: ["PRECIOS", "COMPRAS"],
-        comingSoon: true,
+        comingSoon: false,
     },
     {
         id: "real-o-ia",
@@ -64,9 +64,9 @@ const games = [
         description: "En la era de la inteligencia artificial, ¿puede tu ojo humano detectar la verdad?. Te presentaremos una serie de imágenes espectaculares, hiperralistas y asombrosamente detalladas. Pero aquí está el truco: algunas fueron capturadas por una cámara, mientras que otras fueron creadas desde cero por una inteligencia artificial. Tu misión es decidir: ¿Es Real o IA? Fíjate en los reflejos, las texturas, las imperfecciones... o la falta de ellas. Es un desafío actual, fascinante y que te hará cuestionar todo lo que tus ojos ven. ¿Estás a la altura de la tecnología?",
         image: "/images/coming-soon-pink.png",
         theme: "pink",
-        href: "#",
+        href: "/games/real-o-ia",
         badges: ["IA", "TECNOLOGÍA"],
-        comingSoon: true,
+        comingSoon: false,
     },
     {
         id: "quien-lo-dijo",
@@ -284,7 +284,7 @@ export function GameGrid() {
                                     </h3>
 
                                     <div className="bg-black/10 p-4 rounded-xl border-2 border-black/10 backdrop-blur-sm mb-6 flex-grow">
-                                        <p className="text-white font-bold text-lg md:text-xl leading-normal drop-shadow-md text-justify">
+                                        <p className="text-white font-bold text-lg md:text-xl leading-normal drop-shadow-md text-justify line-clamp-6">
                                             {game.description}
                                         </p>
                                     </div>

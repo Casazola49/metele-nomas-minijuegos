@@ -1,18 +1,28 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: var(--font-bangers);
-  --font-sans: var(--font-outfit);
+  --font-display: var(--font-bebas);
+  --font-sans: var(--font-nunito);
 
-  --color-comic-red: #FF4500;
-  --color-comic-blue: #00BFFF;
-  --color-comic-yellow: #FFD700;
-  --color-comic-orange: #FFA500;
-  --color-comic-pink: #FF0099;
-  --color-comic-green: #32CD32;
-  --color-comic-purple: #9400D3;
-  --color-comic-black: #000000;
+  /* Metele Nomás brand palette (mapped onto the comic tokens) */
+  --color-comic-red: #ef1b77;
+  --color-comic-blue: #9B2FD4;
+  --color-comic-yellow: #FFD600;
+  --color-comic-orange: #ff9343;
+  --color-comic-pink: #ef1b77;
+  --color-comic-green: #3DD68C;
+  --color-comic-purple: #9B2FD4;
+  --color-comic-black: #1D1D1B;
   --color-comic-white: #ffffff;
+
+  /* Explicit Metele Nomás tokens */
+  --color-metele-pink: #ef1b77;
+  --color-metele-orange: #ff9343;
+  --color-metele-yellow: #FFD600;
+  --color-metele-purple: #9B2FD4;
+  --color-metele-green: #3DD68C;
+  --color-metele-black: #1D1D1B;
+  --color-metele-black2: #111110;
 
   --shadow-comic: 6px 6px 0px 0px #000000;
   --shadow-comic-hover: 3px 3px 0px 0px #000000;

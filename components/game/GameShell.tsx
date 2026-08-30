@@ -108,9 +108,9 @@ export function GameShell({
 
                     <div className="flex gap-4 justify-center">
                         <Link href="/">
-                            <ComicButton variant="secondary">Volver</ComicButton>
+                            <ComicButton variant="secondary" aria-label="Volver al inicio">Volver</ComicButton>
                         </Link>
-                        <ComicButton size="lg" onClick={handleStart}>
+                        <ComicButton size="lg" onClick={handleStart} aria-label="Comenzar el juego">
                             ¡Comenzar!
                         </ComicButton>
                     </div>
@@ -152,9 +152,9 @@ export function GameShell({
 
                     <div className="flex gap-4 justify-center">
                         <Link href="/">
-                            <ComicButton variant="secondary">Salir</ComicButton>
+                            <ComicButton variant="secondary" aria-label="Salir al inicio">Salir</ComicButton>
                         </Link>
-                        <ComicButton size="lg" onClick={handleReset} icon={<RotateCcw />}>
+                        <ComicButton size="lg" onClick={handleReset} icon={<RotateCcw />} aria-label="Jugar de nuevo">
                             Jugar de Nuevo
                         </ComicButton>
                     </div>
@@ -189,6 +189,7 @@ export function GameShell({
                         <ComicButton
                             size="lg"
                             onClick={handleNext}
+                            aria-label="Siguiente pregunta"
                             className="shadow-[0px_0px_20px_rgba(0,0,0,0.2)] animate-bounce"
                         >
                             Siguiente <ArrowRight className="inline ml-2" />
