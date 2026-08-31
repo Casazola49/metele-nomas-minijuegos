@@ -8,14 +8,12 @@ context: |
   Style: Comic "Metele Nomás" brand (palette/tokens in app/globals.css, Bebas Neue/Black Han Sans/Nunito), framer-motion, Spanish es-BO UI copy.
   Rebrand of https://github.com/Casazola49/asi-somos-minijuegos (origin still points there; new fork pending). Next planned change: metele-fase2-juegos (9 minigames).
 
-strict_tdd: false
-# Rationale: no test runner or workspace-level test command covers this project yet,
-# so strict TDD cannot gate execution. Re-enable (strict_tdd: true) once a
-# workspace-wide test command is installed and covers this project.
+strict_tdd: true
+# Strict TDD is enforced through the canonical npm test command.
 
 testing:
-  status: none
-  # Proposal only — nothing installed, no dependency added by this phase.
+  status: active
+  test_command: "npm test"
   proposed_runner: vitest
   proposed_setup:
     - name: vitest
@@ -42,9 +40,9 @@ testing:
   projects:
     - path: "."
       stack: "Next.js 16 (App Router) / React 19 / TS 5 strict / Tailwind 4"
-      test_command: null
-      framework: null
-      unit: false
+      test_command: "npm test"
+      framework: vitest
+      unit: true
       integration: false
       e2e: false
       coverage: false
@@ -77,10 +75,10 @@ rules:
       - Follow existing code patterns (GameShell, data modules, comic UI tokens in globals.css).
       - Keep es-BO Spanish UI copy; English code identifiers.
       - Do not install new dependencies without an explicit request.
-    tdd: false
-    test_command: ""
+    tdd: true
+    test_command: "npm test"
   verify:
-    test_command: "npm run build"
+    test_command: "npm test"
     build_command: "npm run build"
     coverage_threshold: 0
   archive:
