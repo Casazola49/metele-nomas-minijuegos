@@ -67,15 +67,15 @@ Chain strategy: delivered (all 4 waves merged to fase2/integration as of 8f6d836
 
 ## Post-apply Review (parent)
 
-- [ ] Start or reuse bounded review for PR 1. <!-- sdd-owner: parent -->
-- [ ] Start or reuse bounded review for PR 2. <!-- sdd-owner: parent -->
-- [ ] Start or reuse bounded review for PR 3. <!-- sdd-owner: parent -->
-- [ ] Start or reuse bounded review for PR 4. <!-- sdd-owner: parent -->
+- [x] Start or reuse bounded review for PR 1. <!-- sdd-owner: parent -->
+- [x] Start or reuse bounded review for PR 2. <!-- sdd-owner: parent -->
+- [x] Start or reuse bounded review for PR 3. <!-- sdd-owner: parent -->
+- [x] Start or reuse bounded review for PR 4. <!-- sdd-owner: parent -->
 
 ## Sync (sdd-sync phase — reconciled)
 
 - [x] Reconcile change artifacts (tasks/verify/apply-progress) to post-fix verified state (commit 8f6d836). <!-- sdd-owner: sync -->
 - [x] Create canonical `openspec/specs/minigames/spec.md` from the change delta spec (no pre-existing canonical). <!-- sdd-owner: sync -->
 - [x] Write `sync-report.md`. <!-- sdd-owner: sync -->
-- [ ] Parent review of PR #1..#4 (see Post-apply Review above). <!-- sdd-owner: parent -->
+- [x] Parent review of PR #1..#4 (see Post-apply Review above). <!-- sdd-owner: parent -->
 - [ ] Archive change after review/merge (sdd-archive). <!-- sdd-owner: parent -->

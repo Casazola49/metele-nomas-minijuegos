@@ -1,21 +1,17 @@
 ```yaml
 schema: gentle-ai.verify-result/v1
-evidence_revision: sha256:417eeb347b0cfdb8f8af86aca71864013fc770bd44016df2ebb6ebd2fdfc9257
-verdict: pass
+evidence_revision: sha256:638fe22b883f8e477ff128babfb2d5b898fa37ffbdacfc4b1d35da43ae8da9c2
+verdict: pass_with_warnings
 blockers: 0
 critical_findings: 0
-requirements: 10/12
-scenarios: 24/26
-reconciled_by: sdd-sync
-reconciled_on: 2025-08-30
-reconcile_commit: 8f6d836
-reconcile_harness: "build=0; tsc=0; lint=0 (29 warnings, 0 errors)"
+requirements: 12/12
+scenarios: 26/26
 test_command: npm run build
 test_exit_code: 0
-test_output_hash: sha256:787f3d4b51658d069584104d1f878ebdc8a31de16749b46da2b6afe2c68a1dfa
+test_output_hash: sha256:44e1e79d91348532f9b86196069df62dc4f9383731335a0c6835f4538ad8223b
 build_command: npx tsc --noEmit && npm run lint
 build_exit_code: 0
-build_output_hash: sha256:8534253d0cc7113a8cf9dad16f48c2d9bdb0461fefd1ac65dee73162ec1ff320
+build_output_hash: sha256:fd78e72d6140c71ea28da20c186f37e2e6cc5f84b661af5a2f5237b5d950a0e7
 ```
 
 ## Verification Report
