@@ -50,6 +50,6 @@ Chain strategy: pending
 
 ## Post-Apply Review Gates
 
-- [ ] Start or reuse bounded review for PR 1 (Slice A). <!-- sdd-owner: parent -->
-- [ ] Start or reuse bounded review for PR 2 (Slice B). <!-- sdd-owner: parent -->
-- [ ] Start or reuse bounded review for PR 3 (Slice C). <!-- sdd-owner: parent -->
+- [x] Start or reuse bounded review for PR 1 (Slice A). <!-- sdd-owner: parent -->
+- [x] Start or reuse bounded review for PR 2 (Slice B). <!-- sdd-owner: parent -->
+- [x] Start or reuse bounded review for PR 3 (Slice C). <!-- sdd-owner: parent -->
