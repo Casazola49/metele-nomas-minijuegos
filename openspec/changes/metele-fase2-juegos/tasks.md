@@ -78,4 +78,4 @@ Chain strategy: delivered (all 4 waves merged to fase2/integration as of 8f6d836
 - [x] Create canonical `openspec/specs/minigames/spec.md` from the change delta spec (no pre-existing canonical). <!-- sdd-owner: sync -->
 - [x] Write `sync-report.md`. <!-- sdd-owner: sync -->
 - [x] Parent review of PR #1..#4 (see Post-apply Review above). <!-- sdd-owner: parent -->
-- [ ] Archive change after review/merge (sdd-archive). <!-- sdd-owner: parent -->
+- [x] Archive change after review/merge (sdd-archive). <!-- sdd-owner: parent -->
