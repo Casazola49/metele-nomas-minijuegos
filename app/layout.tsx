@@ -84,7 +84,7 @@ export default function RootLayout({
   return (
     <html lang="es-BO">
       <body
-        className={`${blackHanSans.variable} ${bebasNeue.variable} ${nunito.variable} antialiased font-sans bg-comic-yellow overflow-x-hidden`}
+        className={`${blackHanSans.variable} ${bebasNeue.variable} ${nunito.variable} antialiased font-sans bg-comic-black text-white overflow-x-hidden`}
       >
         {children}
       </body>

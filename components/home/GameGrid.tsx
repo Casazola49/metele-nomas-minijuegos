@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ComicButton } from "@/components/ui/ComicButton";
 import Link from "next/link";
 import Image from "next/image";
@@ -161,160 +161,51 @@ const games = [
 ] as const;
 
 export function GameGrid() {
+    const reducedMotion = useReducedMotion();
+    const focusRing = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-metele-pink focus-visible:ring-offset-2 focus-visible:ring-offset-comic-black";
+
     return (
-        <section id="games" className="py-24 bg-white relative overflow-hidden">
-            {/* Animated Floating Comic Elements */}
-            <motion.div
-                animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-20 left-10 w-32 h-32 bg-comic-yellow rounded-full border-4 border-black z-0 opacity-60 shadow-comic"
-            />
-            <motion.div
-                animate={{ y: [0, 20, 0], rotate: [0, -10, 0] }}
-                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-20 right-10 w-48 h-48 bg-comic-blue border-4 border-black z-0 opacity-50 shadow-comic"
-                style={{ clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }}
-            />
-            <motion.div
-                animate={{ scale: [1, 1.2, 1], rotate: [45, 50, 45] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-1/3 left-0 w-24 h-24 bg-comic-red rotate-45 border-4 border-black z-0 opacity-40"
-            />
-            <motion.div
-                animate={{ y: [0, -15, 0], x: [0, 10, 0] }}
-                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-1/2 right-20 w-20 h-20 bg-comic-pink rounded-full border-4 border-black z-0 opacity-50"
-            />
-            <motion.div
-                animate={{ rotate: [0, 360] }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute bottom-1/4 left-1/4 w-16 h-16 bg-comic-green border-4 border-black z-0 opacity-30"
-            />
-
-            {/* Halftone Pattern Overlay */}
-            <div className="absolute inset-0 opacity-5 pointer-events-none" style={{
-                backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)',
-                backgroundSize: '15px 15px'
-            }} />
-
-            <div className="container mx-auto px-4 relative z-10">
-                {/* Animated Section Title */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-                    whileInView={{ opacity: 1, scale: 1, rotate: -2 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6, type: "spring", stiffness: 200 }}
-                    className="flex justify-center mb-20"
+        <section id="games" tabIndex={-1} className="relative overflow-hidden bg-comic-black px-4 py-24 text-white outline-none">
+            <div className="landing-dot-grid pointer-events-none absolute inset-0" />
+            <div className="container relative z-10 mx-auto">
+                <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="landing-gradient-text mb-16 text-center font-display text-6xl md:text-8xl"
                 >
-                    <motion.h2
-                        whileHover={{ rotate: 2, scale: 1.05 }}
-                        className="text-5xl md:text-8xl font-display text-comic-black text-stroke-white shadow-comic bg-comic-yellow px-8 py-4 border-4 border-black cursor-default inline-block shadow-[8px_8px_0px_0px_#000]"
-                    >
-                        MINIJUEGOS
-                    </motion.h2>
-                </motion.div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16">
+                    MINIJUEGOS
+                </motion.h2>
+                <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
                     {games.map((game, index) => (
-                        <motion.div
+                        <motion.article
                             key={game.id}
-                            initial={{ opacity: 0, y: 100 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ delay: index * 0.1, duration: 0.5, type: "spring" }}
-                            className={cn(
-                                "flex flex-col",
-                                // Full width for the first item to make it a "Featured" game
-                                index === 0 && "lg:col-span-2"
-                            )}
+                            viewport={{ once: true, margin: "-80px" }}
+                            transition={{ delay: index * 0.04 }}
+                            whileHover={reducedMotion ? undefined : { scale: 1.02 }}
+                            className={cn("landing-glass landing-glass-hover group flex h-full flex-col overflow-hidden rounded-2xl p-5", index === 0 && "lg:col-span-2")}
                         >
-                            <motion.div
-                                whileHover={{ scale: 1.02, rotate: 0 }}
-                                className={cn(
-                                    "h-full border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 flex flex-col relative overflow-hidden group rounded-xl",
-                                    index % 2 === 0 ? "rotate-1" : "-rotate-1",
-                                    game.theme === "pink" && "bg-comic-pink",
-                                    game.theme === "blue" && "bg-comic-blue",
-                                    game.theme === "green" && "bg-comic-green",
-                                    game.theme === "blue-orange" && "bg-comic-blue",
-                                    game.theme === "pink-red" && "bg-comic-pink",
-                                )}
-                            >
-                                {/* Overlay for Coming Soon */}
-                                {game.comingSoon && (
-                                    <div className="absolute inset-0 bg-black/20 z-20 pointer-events-none backdrop-grayscale-[0.5]" />
-                                )}
-
-                                {/* Image Container */}
-                                <div className="relative w-full aspect-video mb-6 border-4 border-black bg-white overflow-hidden shrink-0 rounded-lg shadow-comic">
-                                    <Image
-                                        src={game.image}
-                                        alt={game.title}
-                                        fill
-                                        className={cn(
-                                            "object-cover transition-transform duration-700 ease-out",
-                                            !game.comingSoon && "group-hover:scale-110",
-                                            game.comingSoon && "grayscale-[0.8]"
-                                        )}
-                                    />
-
-                                    {/* Badges */}
-                                    <div className="absolute top-4 right-4 flex gap-2 flex-wrap justify-end">
-                                        {game.badges.map(badge => (
-                                            <span key={badge} className="bg-comic-yellow text-xs md:text-sm font-bold px-2 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-10 transform hover:scale-110 transition-transform">
-                                                {badge}
-                                            </span>
-                                        ))}
-                                    </div>
-
-                                    {/* Coming Soon Lock/Overlay */}
-                                    {game.comingSoon && (
-                                        <div className="absolute inset-0 flex items-center justify-center z-30">
-                                            <div className="bg-black/80 text-white font-display text-4xl md:text-5xl px-6 py-3 border-4 border-white transform -rotate-12 shadow-lg backdrop-blur-sm">
-                                                PRÓXIMAMENTE
-                                            </div>
-                                        </div>
-                                    )}
+                            <div className="relative mb-5 aspect-video overflow-hidden rounded-xl bg-white/10">
+                                <Image src={game.image} alt={game.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                                <div className="absolute right-3 top-3 flex flex-wrap justify-end gap-2">
+                                    {game.badges.map((badge) => <span key={badge} className="landing-glass rounded px-2 py-1 text-xs font-bold">{badge}</span>)}
                                 </div>
-
-                                {/* Content */}
-                                <div className="flex flex-col flex-grow relative z-30">
-                                    <h3 className="text-3xl md:text-5xl font-display text-white text-stroke-2 shadow-comic mb-4 leading-none tracking-wide group-hover:text-comic-yellow transition-colors">
-                                        {game.title}
-                                    </h3>
-
-                                    <div className="bg-black/10 p-4 rounded-xl border-2 border-black/10 backdrop-blur-sm mb-6 flex-grow">
-                                        <p className="text-white font-bold text-lg md:text-xl leading-normal drop-shadow-md text-justify line-clamp-6">
-                                            {game.description}
-                                        </p>
-                                    </div>
-
-                                    {game.comingSoon ? (
-                                        <div className="w-full mt-auto opacity-50 grayscale">
-                                            <ComicButton
-                                                variant="outline"
-                                                className="w-full text-2xl py-4 bg-gray-200 border-gray-500 cursor-not-allowed"
-                                                disabled
-                                            >
-                                                BLOQUEADO 🔒
-                                            </ComicButton>
-                                        </div>
-                                    ) : (
-                                        <Link href={game.href} className="w-full mt-auto">
-                                            <ComicButton
-                                                variant="secondary"
-                                                className="w-full text-2xl py-4 shadow-comic hover:shadow-comic-hover transform group-hover:-translate-y-1 transition-all bg-white text-black border-black"
-                                            >
-                                                ¡JUGAR AHORA! 🎮
-                                            </ComicButton>
-                                        </Link>
-                                    )}
-                                </div>
-
-                                {/* Decorative Background Pattern */}
-                                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent pointer-events-none" />
-                            </motion.div>
-                        </motion.div>
+                                {game.comingSoon && <div className="absolute inset-0 flex items-center justify-center bg-black/60"><span className="font-display text-3xl">PRÓXIMAMENTE</span></div>}
+                            </div>
+                            <div className="flex flex-grow flex-col">
+                                <h3 className="mb-3 font-display text-3xl leading-none md:text-5xl">{game.title}</h3>
+                                <p className="mb-6 flex-grow text-base leading-relaxed text-white/75 md:text-lg">{game.description}</p>
+                                {game.comingSoon ? (
+                                    <ComicButton variant="outline" disabled className="w-full opacity-50" aria-label={`${game.title} próximamente`}>BLOQUEADO 🔒</ComicButton>
+                                ) : (
+                                    <Link href={game.href} aria-label={`Jugar ${game.title}`} className={`w-full ${focusRing}`}>
+                                        <ComicButton variant="landing" className="w-full" aria-label={`Jugar ${game.title}`}><span className="landing-gradient-text">¡JUGAR AHORA! 🎮</span></ComicButton>
+                                    </Link>
+                                )}
+                            </div>
+                        </motion.article>
                     ))}
                 </div>
             </div>

@@ -4,7 +4,7 @@ import { motion, HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface ComicButtonProps extends Omit<HTMLMotionProps<"button">, "children"> {
-    variant?: "primary" | "secondary" | "danger" | "success" | "outline";
+    variant?: "primary" | "secondary" | "danger" | "success" | "outline" | "landing";
     size?: "sm" | "md" | "lg";
     icon?: React.ReactNode;
     children?: React.ReactNode;
@@ -24,6 +24,7 @@ export function ComicButton({
         danger: "bg-comic-red text-white border-comic-black hover:bg-red-600",
         success: "bg-comic-green text-white border-comic-black hover:bg-green-600",
         outline: "bg-transparent text-comic-black border-comic-black hover:bg-black/5",
+        landing: "bg-white/10 text-white border-white/20 backdrop-blur-md hover:bg-white/20 hover:border-metele-pink/50 shadow-none border-2",
     };
 
     const sizes = {
