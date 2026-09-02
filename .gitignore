@@ -44,3 +44,6 @@ next-env.d.ts
 
 # CodeGraph local index
 .codegraph/
+
+# Gentle AI runtime markers
+.gentle-ai-instance
