@@ -165,7 +165,7 @@ export function GameGrid() {
     const focusRing = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-metele-pink focus-visible:ring-offset-2 focus-visible:ring-offset-comic-black";
 
     return (
-        <section id="games" className="relative overflow-hidden bg-comic-black px-4 py-24 text-white">
+        <section id="games" tabIndex={-1} className="relative overflow-hidden bg-comic-black px-4 py-24 text-white outline-none">
             <div className="landing-dot-grid pointer-events-none absolute inset-0" />
             <div className="container relative z-10 mx-auto">
                 <motion.h2

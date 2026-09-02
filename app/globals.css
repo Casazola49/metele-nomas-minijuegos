@@ -112,9 +112,13 @@
 }
 
 body {
-  background-color: var(--color-comic-yellow);
-  color: var(--color-comic-black);
+  background-color: var(--color-metele-black);
+  color: var(--color-comic-white);
   font-family: var(--font-sans);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 h1,
