@@ -20,7 +20,7 @@ Chain strategy: pending
 
 | Unit | Goal | Likely PR | Focused test command | Runtime harness | Rollback boundary |
 |------|------|-----------|----------------------|-----------------|-------------------|
-| 1 | Foundation: ticker data, CSS utilities, layout body, ComicButton variant | PR 1 | `npm test -- data/ticker.test.tsx` | `npm run build`; open `/` and `/games/pelimojis` | Revert `data/ticker.tsx`, `app/globals.css`, `app/layout.tsx`, `components/ui/ComicButton.tsx` |
+| 1 | Foundation: ticker data, CSS utilities, layout body, ComicButton variant | PR 1 | `npm test -- data/ticker.test.tsx` | `npm run build`; open home route and `/games/pelimojis` | Revert `data/ticker.tsx`, `app/globals.css`, `app/layout.tsx`, `components/ui/ComicButton.tsx` |
 | 2 | Hero + GameGrid dark/glass redesign | PR 2 | `npm test` | `npm run build`; click JUGAR → `#games`; Tab cards | Revert `components/home/Hero.tsx`, `components/home/GameGrid.tsx` |
 | 3 | Footer dark redesign + ticker + socials | PR 3 | `npm test` | `npm run build`; open footer; click 4 socials + metelenomas.lat | Revert `components/home/Footer.tsx` |
 
