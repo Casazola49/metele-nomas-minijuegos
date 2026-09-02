@@ -52,5 +52,5 @@ Chain strategy: pending
 
 ## Post-Apply Review
 
-- [ ] Choose chain strategy (stacked-to-main / feature-branch-chain / size-exception) and confirm whether PR 2 splits into 2a/2b before apply. <!-- sdd-owner: parent -->
-- [ ] Run bounded review over the chained PRs and re-confirm the pelimojis game route visual baseline unchanged after all slices. <!-- sdd-owner: parent -->
+- [x] Choose chain strategy (stacked-to-main / feature-branch-chain / size-exception) and confirm whether PR 2 splits into 2a/2b before apply. <!-- sdd-owner: parent -->
+- [x] Run bounded review over the chained PRs and re-confirm the pelimojis game route visual baseline unchanged after all slices. <!-- sdd-owner: parent -->
