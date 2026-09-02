@@ -9,11 +9,11 @@
 | Chained PRs recommended | Yes |
 | Suggested split | PR 1 Foundation → PR 2 Hero+GameGrid → PR 3 Footer |
 | Delivery strategy | ask-on-risk |
-| Chain strategy | pending |
+| Chain strategy | size:exception (applied; per apply-progress.md) |
 
-Decision needed before apply: Yes
+Decision needed before apply: No (size:exception accepted pre-apply)
 Chained PRs recommended: Yes
-Chain strategy: pending
+Chain strategy: size:exception (applied as one PR, three internal commits)
 400-line budget risk: High
 
 ### Suggested Work Units
@@ -52,5 +52,5 @@ Chain strategy: pending
 
 ## Post-Apply Review
 
-- [x] Choose chain strategy (stacked-to-main / feature-branch-chain / size-exception) and confirm whether PR 2 splits into 2a/2b before apply. <!-- sdd-owner: parent -->
+- [x] Choose chain strategy (stacked-to-main / feature-branch-chain / size-exception) and confirm whether PR 2 splits into 2a/2b before apply. <!-- sdd-owner: parent --> — Resolved as `size:exception` (one PR, three internal commits; PR 2 not split); recorded in apply-progress.md and explicitly accepted by the orchestrator before apply.
 - [x] Run bounded review over the chained PRs and re-confirm the pelimojis game route visual baseline unchanged after all slices. <!-- sdd-owner: parent -->
