@@ -13,10 +13,10 @@ export function Scoreboard({ score, highScore }: ScoreboardProps) {
             <motion.div
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
-                className="bg-white border-4 border-black p-4 rounded-xl shadow-comic"
+                className="bg-[#181816]/90 border-2 border-white/20 shadow-comic backdrop-blur-md text-white p-3 md:p-4 rounded-xl min-w-[5.5rem] text-center"
             >
-                <p className="text-sm font-bold uppercase text-gray-500">Puntaje</p>
-                <p className="text-4xl font-display text-comic-blue">{score}</p>
+                <p className="text-xs md:text-sm font-bold uppercase tracking-wider text-white/70">Puntaje</p>
+                <p className="text-3xl md:text-4xl font-display text-metele-yellow">{score}</p>
             </motion.div>
 
             {highScore !== undefined && (
@@ -24,10 +24,10 @@ export function Scoreboard({ score, highScore }: ScoreboardProps) {
                     initial={{ y: -100 }}
                     animate={{ y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="bg-comic-yellow border-4 border-black p-4 rounded-xl shadow-comic hidden md:block"
+                    className="bg-[#181816]/90 border-2 border-white/20 shadow-comic backdrop-blur-md text-white p-3 md:p-4 rounded-xl min-w-[5.5rem] text-center hidden md:block"
                 >
-                    <p className="text-sm font-bold uppercase text-black/60">Récord</p>
-                    <p className="text-4xl font-display text-black">{highScore}</p>
+                    <p className="text-xs md:text-sm font-bold uppercase tracking-wider text-white/70">Récord</p>
+                    <p className="text-3xl md:text-4xl font-display text-metele-pink">{highScore}</p>
                 </motion.div>
             )}
         </div>
