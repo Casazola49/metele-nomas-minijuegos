@@ -47,3 +47,6 @@ next-env.d.ts
 
 # Gentle AI runtime markers
 .gentle-ai-instance
+
+# Local Pi runtime state
+.pi/
