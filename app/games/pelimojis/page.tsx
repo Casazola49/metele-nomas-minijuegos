@@ -175,13 +175,13 @@ export default function PelimojisGame() {
                         animate={{ x: 0 }}
                         exit={{ x: "-100%" }}
                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                        className="fixed inset-0 z-[100] bg-comic-yellow flex items-center justify-center border-l-8 border-black"
+                        className="fixed inset-0 z-[100] bg-[#1D1D1B]/95 backdrop-blur-md flex items-center justify-center border-l-4 border-metele-pink"
                     >
-                        <div className="bg-white border-4 border-black p-12 rounded-3xl shadow-[20px_20px_0px_rgba(0,0,0,1)] transform -rotate-3 text-center">
-                            <h2 className="text-6xl md:text-8xl font-display text-comic-blue text-stroke mb-4">
+                        <div className="bg-[#181816]/95 border-2 border-white/20 p-12 rounded-3xl shadow-comic-lg transform -rotate-3 text-center text-white backdrop-blur-xl">
+                            <h2 className="text-6xl md:text-8xl font-display landing-gradient-text mb-4">
                                 ¡TURNO DE!
                             </h2>
-                            <p className="text-4xl md:text-6xl font-bold uppercase">
+                            <p className="text-4xl md:text-6xl font-bold uppercase text-metele-yellow">
                                 {players[currentPlayerIndex].name}
                             </p>
                         </div>
@@ -190,13 +190,13 @@ export default function PelimojisGame() {
             </AnimatePresence>
 
             {currentMovie && (
-                <div className="flex flex-col h-screen w-full bg-comic-yellow overflow-hidden relative">
+                <div className="flex flex-col h-screen w-full bg-comic-black text-white overflow-hidden relative">
                     {/* Header Info */}
                     {!showTurnChange && players.length > 0 && (
-                        <div className="absolute top-4 left-4 z-20">
-                            <div className="bg-white border-4 border-black px-6 py-2 rounded-full shadow-comic">
-                                <p className="text-xl font-bold uppercase">
-                                    Jugando: <span className="text-comic-blue">{players[currentPlayerIndex].name}</span>
+                        <div className="absolute top-4 left-28 z-20">
+                            <div className="bg-[#181816]/90 border-2 border-white/20 px-6 py-2 rounded-full shadow-comic backdrop-blur-md text-white">
+                                <p className="text-lg md:text-xl font-bold uppercase">
+                                    Jugando: <span className="text-metele-pink">{players[currentPlayerIndex].name}</span>
                                 </p>
                             </div>
                         </div>
@@ -208,10 +208,10 @@ export default function PelimojisGame() {
                             key={currentMovie.id}
                             initial={{ scale: 0.9, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
-                            className="w-full h-full bg-white border-4 border-black rounded-3xl shadow-comic-lg relative overflow-hidden flex items-center justify-center"
+                            className="w-full h-full bg-[#181816]/80 border-2 border-white/10 rounded-3xl shadow-comic-lg backdrop-blur-md relative overflow-hidden flex items-center justify-center"
                         >
                             {/* Background Pattern */}
-                            <div className="absolute inset-0 opacity-5 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-black to-transparent w-full h-full scale-150" />
+                            <div className="absolute inset-0 opacity-5 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent w-full h-full scale-150" />
 
                             <div className="relative z-10 w-full h-full px-4 flex items-center justify-center overflow-auto">
                                 {/* Adjusted text size and layout for multi-line emojis */}
