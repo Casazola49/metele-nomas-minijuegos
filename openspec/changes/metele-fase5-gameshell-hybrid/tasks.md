@@ -25,5 +25,5 @@ Chain strategy: pending
 
 ## Parent Tasks (Review)
 
-- [ ] Perform bounded review of the UI styling transition and navigation flow implementation. <!-- sdd-owner: parent -->
-- [ ] Verify accessibility compliance for new dark glass controls (`"Volver al inicio"`, `"Comenzar el juego"`). <!-- sdd-owner: parent -->
+- [x] Perform bounded review of the UI styling transition and navigation flow implementation. <!-- sdd-owner: parent -->
+- [x] Verify accessibility compliance for new dark glass controls (`"Volver al inicio"`, `"Comenzar el juego"`). <!-- sdd-owner: parent -->
